@@ -1,0 +1,49 @@
+{
+  "name": "highlight-scroll",
+  "version": "0.0.1",
+  "description": "A lightweight and efficient Scroll Highlight plugin for Alpine.js, helping you track active sections on scroll.",
+  "keywords": [
+    "Alpine.js",
+    "scroll spy",
+    "Alpine.js plugin",
+    "scroll highlight",
+    "active section highlight",
+    "frontend",
+    "Menu Highlight",
+    "JavaScript",
+    "UI enhancement"
+  ],
+  "author": {
+    "name": "Namu Makwembo",
+    "url": "https://github.com/namumakwembo"
+  },
+  "license": "MIT",
+  "main": "dist/highlight-scroll.cjs.js",
+  "module": "dist/highlight-scroll.esm.js",
+  "unpkg": "dist/highlight-scroll.min.js",
+  "exports": {
+    "require": "./dist/highlight-scroll.cjs.js",
+    "import": "./dist/highlight-scroll.esm.js",
+    "browser": "./dist/highlight-scroll.min.js"
+  },
+  "files": ["dist"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/namumakwembo/highlight-scroll"
+  },
+  "homepage": "https://github.com/namumakwembo/highlight-scroll#readme",
+  "bugs": {
+    "url": "https://github.com/namumakwembo/highlight-scroll/issues"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "build": "node scripts/build.js",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "esbuild": "^0.21.5"
+  },
+  "peerDependencies": {
+    "alpinejs": "^3.0.0"
+  }
+}

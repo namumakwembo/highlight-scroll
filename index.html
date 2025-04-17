@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Highlight Scroll js</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+  
+  
+  <script defer src="./dist/highlight-scroll.min.js"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <style>
+  .nunito-font {
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+  }
+  </style>
+</head>
+
+
+<body  class=" p-5 md:p-10 nunito-font overflow-hidden grid bg-gray-100">
+  
+ 
+    <header class="justify-between flex p-3 border border-2 bg-white rounded-xl">
+      <h1 class="font-bold text-2xl p-2"> HighlightScroll.js</h1> 
+      
+      <a href="">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github h-10 w-10" viewBox="0 0 16 16">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+        </svg>
+      </a>
+    </header>
+
+    <!-- Todo:Change x-scroll-group from group to id or key & also make the x-scroll-group accept string  https://chatgpt.com/c/67eaf4e8-1b80-800b-ac38-5da651d2cc19   -->
+    <main x-data x-scroll-group    class="w-full relative sm:grid sm:grid-cols-12 h-[calc(100vh_-_10rem)]  overflow-hidden bg-white p-5 flex  items-center my-auto border border-2 rounded-xl">
+
+      <div   x-scroll-container   class="sm:col-span-9 w-full  h-full   overflow-y-auto  rounded-xl  ">
+        <div class="h-[1900px] flex flex-col  overflow-y-auto ">
+          
+          <!-- Heading 1 -->
+          <div class="h-96 bg-blue-100">
+            <h3 x-scroll-section="heading-1" class="text-2xl p-3">Heading 1  <code class="text-xs bg-gray-100 p-px">x-scroll-section="`heading-1`"</code></h3>
+          </div>
+
+          <!-- Heading 2 -->
+          <div class="h-[400px] bg-green-100">
+            <h5 x-scroll-section="{id:'heading-2',group:'default'}" class="text-2xl p-3">Heading 2</h5>
+
+            <!-- Subheadings -->
+            <div class="mt-9 space-y-12">
+              <h6 x-scroll-section="'sub-1'"      class="text-lg p-3">Subheading 1</h6>
+              <h6 x-scroll-section="{id:'sub-2'}" class="text-lg p-3">Subheading 1</h6>
+              <h6 x-scroll-section="{id:'sub-3'}" class="text-lg p-3">Subheading 1</h6>
+            </div>
+          </div>
+
+          <!-- Heading 3 -->
+          <div class="h-96 bg-sky-100">
+            <h5 x-scroll-section="{id:'heading-3'}" class="text-2xl p-3">Heading 3</h5>
+          </div>
+          <div class="h-[800px] bg-teal-100">
+            <h5 x-scroll-section="{id:'heading-4'}" class="text-2xl p-3">Heading 4</h5>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Aside -->
+      <aside class="hidden sm:grid sm:col-span-3 h-full   grid overflow-y-auto p-7">
+
+        <nav class=" gap-3">
+          <h5 class="font-bold dark:text-gray-400 mb-4 text-slate-600/50 dark:font-normal">On This Page</h5>
+
+          <ul class="flex  flex-col  gap-2">
+
+            <!-- Render as Normal Item -->
+            <li class="dark:text-gray-200  text-2xl  font-medium text-gray-600 hover:text-blue-500">
+              <a x-scroll-item="`heading-1`" href="#heading-1">
+                Heading-1
+              </a>
+            </li>
+
+
+            <!-- Render Heading -->
+            <li>
+
+            <li class="dark:text-gray-200 text-2xl  font-medium text-gray-600 hover:text-blue-500">
+              <a x-scroll-item="{target:'heading-2',group:'default'}" href="#heading-2">
+                Heading-2
+              </a>
+            </li>
+
+            <!-- Render Subheadings -->
+            <ul class="ml-3 border-l text-lg border-gray-100 dark:border-gray-700 px-1 flex flex-col gap-2">
+              <li class="dark:text-gray-300  text-xl text-gray-700 hover:text-blue-500">
+                <a class="font-normal" x-scroll-item="{target:'sub-1'}" href="#sub-1">
+                  Subheading 1
+                </a>
+              </li>
+              <li class="dark:text-gray-300  text-xl text-gray-700 hover:text-blue-500">
+                <a class="font-normal" x-scroll-item="{target:'sub-2'}" href="#sub-2">
+                  Subheading 2
+                </a>
+              </li>
+              <li class="dark:text-gray-300  text-xl text-gray-700 hover:text-blue-500">
+                <a class="font-normal" x-scroll-item="{target:'sub-3'}" href="#sub-3">
+                  Subheading 2
+                </a>
+              </li>
+
+            </ul>
+
+            </li>
+
+
+            <!-- Render as Normal Item -->
+            <li class="dark:text-gray-200  text-2xl  font-medium text-gray-600 hover:text-blue-500">
+              <a x-scroll-item="{target:'heading-3'}" href="#high">
+                Heading-3
+              </a>
+            </li>
+            <li class="dark:text-gray-200  text-2xl  font-medium text-gray-600 hover:text-blue-500">
+              <a x-scroll-item="{target:'heading-4'}" href="#high">
+                Heading-4
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+    </main>
+
+</body>
+
+</html>
