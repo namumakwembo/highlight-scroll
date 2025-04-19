@@ -1,6 +1,6 @@
 {
   "name": "highlight-scroll",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A lightweight and efficient Scroll Highlight plugin for Alpine.js, helping you track active sections on scroll.",
   "keywords": [
     "Alpine.js",
@@ -26,7 +26,9 @@
     "import": "./dist/highlight-scroll.esm.js",
     "browser": "./dist/highlight-scroll.min.js"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/namumakwembo/highlight-scroll"
