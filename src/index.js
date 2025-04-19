@@ -21,14 +21,17 @@ export default function HighlightScroll(options = {}) {
         if (!this.groups[name]) {
           this.groups[name] = {
             scrollEl: window,
-            offset: defaultOffset,
-            highlightClasses: highlightClasses,
+            offset: options.offset ?? 50,
+            highlightClasses:
+              options.highlightClasses ??
+              "ease-in-out text-blue-500 scale-110 dark:text-blue-500 transition-all",
             items: [],
             sections: [],
           };
         }
         return this.groups[name];
       },
+      
 
       setGroupOptions({ group = "default", offset, highlightClasses }) {
         const g = this.getGroup(group);

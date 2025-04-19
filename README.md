@@ -24,7 +24,11 @@ npm install -D highlight-scroll
 import Alpine from 'alpinejs'
 import HighlightScroll from 'highlight-scroll'
 
-Alpine.plugin(HighlightScroll)
+Alpine.plugin(HighlightScroll({
+  offset: 100, // Distance from top when highlighting
+  highlightClasses: 'text-blue-500 font-bold transition-all' // Classes applied to active items
+}))
+
 Alpine.start()
 ```
 
@@ -79,16 +83,6 @@ The `HighlightScroll` plugin provides directives to create a scroll-based naviga
     - `x-scroll-item="'section-1'"`
     - `x-scroll-item="{target: 'section-1', group: 'myGroup'}"`
 
-### Customization
-
-Customize the plugin by passing options when registering it:
-
-```js
-Alpine.plugin(HighlightScroll({
-  offset: 100, // Distance from top when highlighting
-  highlightClasses: 'text-blue-500 font-bold transition-all' // Classes applied to active items
-}))
-```
 
 ### Notes
 
